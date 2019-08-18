@@ -1,0 +1,21 @@
+<%include ../partials/header %>
+<div class="container">
+    <div class="row">
+       <h1 style="text-align: center">Add a new Comment to <%= campground.name %> </h1>
+       <div style="width: 30%; margin:30px auto">
+            <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+                <div class="form-group">
+                     <input class="form-control" type="text" placeholder="text" name="comment[text]">
+                </div>
+                 <!-- this format-->
+                                                                                  <!--comment[author] is used-->
+                                                                          <!--to define use req.body.comment later-->
+                                                                          <!--to extract comment -->
+                     <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button></>
+            </form>
+            <a href="/campgrounds">Go Back</a>
+       </div>
+       
+    </div>
+</div>
+<%include ../partials/footer %>

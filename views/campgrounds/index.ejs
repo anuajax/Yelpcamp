@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+ <!--this is campgrounds.ejs page renames to index.ejs following RESTful Routing system-->
+<!--navbar moved into header-->
+
+<div class="container">
+<header class="jumbotron">
+    <div class="container">
+    <h1>Welcome To YelpCamp</h1>
+    <p>Know about all beautiful campgrounds from all over the world </p>
+    <a href="/campgrounds/new" class="btn btn-lg btn-primary">Add New Campground</a>
+    </div>
+</header>
+
+  <div class="row text-center">
+
+        
+
+        <% campgrounds.forEach(function(campground){ %>
+
+              <div class="col-md-3 col-sm-6">
+                  <div class="thumbnail img-responsive">
+                        <img class="img-responsive" src="<%= campground.image %>" alt="image">
+                        <div class="caption">
+                           <h4> <%= campground.name %> </h4>
+                        </div>
+                        <p> <!--More Info button which on being clicked will open shows template to show details of that campground-->
+                            <a id="btn-border" href="/campgrounds/<%=campground._id %>" class="btn btn-primary">More Info</a> <!--here / had an error-->
+                        </p>
+                  </div>
+              </div>
+
+           <% }); %>
+   </div>
+</div>
+<% include ../partials/footer %>

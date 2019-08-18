@@ -1,0 +1,13 @@
+body{
+    background-image: url("https://images5.alphacoders.com/432/thumb-1920-432769.jpg");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 100% 0%;
+    background-repeat: no-repeat;
+    z-index: 0;
+    color: white;
+}

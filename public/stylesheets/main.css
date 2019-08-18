@@ -1,0 +1,24 @@
+body{
+    background-color: black;
+}
+.thumbnail img{
+ width: 100%;
+
+}
+.thumbnail{
+    padding: 0;
+    border: none;
+}
+.thumbnail .caption-full{
+padding: 9px;
+}
+#btn-border{
+    margin-bottom: 10px;
+}
+#delete-form{
+display: inline;
+}
+.navbar-default a{
+   font-size: 16px;
+    color: black;
+}
