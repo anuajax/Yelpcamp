@@ -17,7 +17,9 @@ var seedDB = require("./seeds");
 //seedDB();
 //mongoose
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/yelp_camp_database", { useNewUrlParser: true }); 
+//mongoose.connect("mongodb://localhost/yelp_camp_database", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://anu123:apple123@cluster0-5c5ij.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });  
+
 //PASSPORT config:
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
