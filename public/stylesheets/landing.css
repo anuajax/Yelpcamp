@@ -69,3 +69,7 @@ body {
       opacity: 0
     }
   }
+  .img-responsive{
+    width: 300px;
+    height: 250px;
+  }

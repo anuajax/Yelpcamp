@@ -1,0 +1,16 @@
+<% include ./partials/header %>
+<div class="row forgot">
+	<div class="col-md-12" class="forgot">
+		<form style="width: 75%;" action="/forgot" method="POST">
+			<legend>A reset link will be sent to your registered email which is valid for 60 minutes.</legend>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" name="email" autofocus class="form-control">
+			</div>
+			<div class="form-group">
+				<input type="submit" class="btn btn-primary" value="Reset Password">
+			</div>
+		</form>
+	</div>
+</div>
+<% include ./partials/footer %>

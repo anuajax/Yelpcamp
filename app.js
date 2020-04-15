@@ -1,24 +1,33 @@
+require('dotenv').config();
 var express = require("express");
 var app = express();
 app.set("view engine","ejs");
-//body parser
+
+//============= body parser =======================//
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 var flash = require("connect-flash");
 app.use(flash());
+
+
+//============ Schema ==============================//
 var User = require("./models/user.js");
-//Schema
 var Campground = require("./models/campground.js");
 var Comment = require("./models/comment.js");
 
 //seeds
 var seedDB = require("./seeds");
 //seedDB();
-//mongoose
+
+//================================= mongoose =======================================//
 var mongoose = require("mongoose");
-//mongoose.connect("mongodb://localhost/yelp_camp_database", { useNewUrlParser: true });
-mongoose.connect("mongodb+srv://anu123:apple123@cluster0-5c5ij.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });  
+mongoose.connect("mongodb://localhost/yelp_camp_database", { useNewUrlParser: true });
+//mongoose.connect("mongodb+srv://anu123:apple123@cluster0-5c5ij.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });  
+
+//===============================================================================================================================================
+//===============================================================================================================================================
+
 
 //PASSPORT config:
 var passport = require("passport");
@@ -26,7 +35,8 @@ var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 var methodOverride =  require("method-override");
 app.use(methodOverride("_method"));
-//requiring our 3 blocks of code
+
+//===========Main Routes===========requiring our 3 blocks of code====================//
 var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
 var authRoutes = require("./routes/authorization"); 
