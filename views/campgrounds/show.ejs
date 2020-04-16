@@ -9,6 +9,9 @@
                             <li class="list-group-item">Info-3</li>
                                    
                      </div>
+                     <div id="map" class="text-center list-group-item mt-5">
+                         <p>Map is not shown.Ask the owner to purchase Google maps API.</p>
+                     </div>
               </div>
               <div class="col-md-9">
                      <div class="thumbnail">
@@ -56,6 +59,35 @@
        </div>
 </div>
 
+<script>
+       function initMap() {
+         var lat = <%= campground.lat %>;
+         var lng = <%= campground.lng %>;
+         var center = {lat: lat, lng: lng };
+         var map = new google.maps.Map(document.getElementById('map'), {
+             zoom: 8,
+             center: center,
+             scrollwheel: true
+         });
+         var contentString = `
+           <strong><%= campground.name %><br />
+           <%= campground.location %></strong>
+           <p><%= campground.description %></p>
+         `;
+         var infowindow = new google.maps.InfoWindow({
+           content: contentString
+         });
+         var marker = new google.maps.Marker({
+             position: center,
+             map: map
+         });
+         marker.addListener('click', function() {
+           infowindow.open(map, marker);
+         });
+       }
+     </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXdSHnEb3VtvfTSlbJu4yWWP5jbtvzLrE&callback=initMap"
+async defer></script>
 
 
 

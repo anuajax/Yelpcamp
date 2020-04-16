@@ -22,3 +22,12 @@ display: inline;
    font-size: 16px;
     color: black;
 }
+#map{
+    background-image: url('https://www.extremetech.com/wp-content/uploads/2019/10/maps-generic-640x353.jpg');
+    background-position: center;
+    text-shadow: 2px 2px #FF0000;
+    color: #fff;
+    width: auto;
+    height: auto;
+    font-weight: bolder;
+}
