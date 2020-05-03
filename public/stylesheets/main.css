@@ -1,9 +1,19 @@
 body{
-    background-color: black;
+    background-color: rgb(0, 0, 0);
+}
+p{
+    font-size: larger;
+    font-family: 'Noto Serif', serif;
+    color: antiquewhite;
+}
+p:hover{
+color: aquamarine
 }
 .thumbnail img{
  width: 100%;
-
+}
+.idx{
+    margin-top: 20px;
 }
 .thumbnail{
     padding: 0;
@@ -18,10 +28,19 @@ padding: 9px;
 #delete-form{
 display: inline;
 }
-.navbar-default a{
-   font-size: 16px;
-    color: black;
+.camps{
+    border: 1px solid wheat;
 }
+.camps img{
+    height: 25vh;
+}
+.caps{
+    background-color: black;
+}
+.cap{
+    margin: 10px 0px;
+}
+.lead a{color: yellow; text-decoration: none;}
 #map{
     background-image: url('https://www.extremetech.com/wp-content/uploads/2019/10/maps-generic-640x353.jpg');
     background-position: center;
@@ -30,4 +49,53 @@ display: inline;
     width: auto;
     height: auto;
     font-weight: bolder;
+    border: 2px  burlywood;
+    border-style: groove;
+   
+}
+#weather{
+    color: black;
+}
+#mybar{
+    font-size: 1.3rem;
+    font-weight: 100;
+}
+#mybar .navbar-brand{
+    color: crimson;
+}
+#mybar .nav-link{
+    color: white;
+}
+#mybar .nav-link:hover{
+    color: crimson;
+}
+
+.navbar{
+    background: url("https://www.securitysales.com/wp-content/uploads/2019/09/AdobeStock_273523138.jpeg");
+    background-size: cover;
+}
+.index{
+    background: url("https://i.ytimg.com/vi/SLR_p2g473I/maxresdefault.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+.show{
+   padding-top: 8vh;
+}
+.newcamp{
+    color: wheat;
+}
+.pull-right li
+{
+float: right;
+}
+.login{
+    height: 100vh;
+    width: 30vw;
+}
+
+footer > p{
+    margin: 0px 0px;
+    text-align: center;
+    background-color: black;
 }
