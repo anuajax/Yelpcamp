@@ -59,9 +59,11 @@ display: inline;
 #mybar{
     font-size: 1.3rem;
     font-weight: 100;
+    font-family: 'Noto Serif', serif;
+
 }
 #mybar .navbar-brand{
-    color: crimson;
+    color: yellow
 }
 #mybar .nav-link{
     color: white;
