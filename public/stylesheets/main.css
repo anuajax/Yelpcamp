@@ -4,11 +4,12 @@ body{
 p{
     font-size: larger;
     font-family: 'Noto Serif', serif;
-    color: antiquewhite;
+    color: whitesmoke;
 }
 p:hover{
 color: aquamarine
 }
+
 .thumbnail img{
  width: 100%;
 }
@@ -18,6 +19,7 @@ color: aquamarine
 .thumbnail{
     padding: 0;
     border: none;
+    color: yellow;
 }
 .thumbnail .caption-full{
 padding: 9px;
@@ -63,7 +65,7 @@ display: inline;
 padding: 10px auto;
 }
 #mybar .navbar-brand{
-    color: yellow;
+    color: crimson;
     font-family: 'Roboto', sans-serif;
 }
 #mybar .nav-link{
@@ -104,3 +106,44 @@ footer > p{
     text-align: center;
     background-color: black;
 }
+
+
+.climate1,.climate2{
+    display: none;
+    padding: 10px 10px;
+    
+    width: auto;
+    height: auto;
+    font-weight: 900;
+    border: 1px  yellow;
+    border-style: groove;
+    
+}
+.climate2{
+    background: url("https://images.unsplash.com/photo-1533387520709-752d83de3630?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80");
+    background-size: cover;
+background-position: center;
+color: rgb(0, 174, 255);
+}
+.climate1{
+    background: url("https://hacked.com/wp-content/uploads/2017/09/Clouds-blue-sky-1000x600.jpg");
+    background-size: cover;
+background-position: center;
+color: black;
+}
+.cl1{
+  width: 25%;
+  height: 25%;
+    color: black;
+    padding-left: 1%;
+  
+}
+.display{
+    display: block;
+}
+#user{
+    font-size: larger;
+    color: rgb(10, 10, 10);
+}
+hr{ font-weight: bolder;}
+.pull-right{ color: rgb(255, 145, 0);}

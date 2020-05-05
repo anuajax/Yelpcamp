@@ -5,7 +5,8 @@ var campSchema = new mongoose.Schema({
     image: String,
     description: String,
     location: String,
-    
+    weather: {main:String,desc:String,current: Number,feelslike: Number,max: Number,min: Number,hum: Number,
+    sunr:String,suns:String,wind:{speed: Number,deg:Number}},
     lat: Number,
     lng: Number,
     author : {

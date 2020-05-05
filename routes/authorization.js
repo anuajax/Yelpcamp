@@ -252,29 +252,29 @@ router.get('/forgot', function(req, res) {
         });
       });
 
-      router.get("/change",(req,res)=>{ 
-        User.findById(req.params.id,(err,user)=>{ if(err) console.log(err); else  res.render("changepass.ejs",{user})})});
+      // router.get("/change",(req,res)=>{ 
+      //   User.findById(req.params.id,(err,user)=>{ if(err) console.log(err); else  res.render("changepass.ejs",{user})})});
       
-      router.post('/change',(req, res)=>{
-       User.findById(req.params.id,(err, user) => {
-            if (err) {console.log('success: false, message: err'); } 
-            else {
-               if (!user) { req.flash("error", 'User not found' );} // Ret error,user was not found in db
-               else {
-                if(req.body.newPassword === req.body.confirmnewPassword) {
-                user.changePassword(req.body.oldPassword, req.body.newPassword, function(err) {
-                   if(err) {
-                      console.log(err);
-                  } else {req.flash("success",'Your password has been changed successfully');
-                res.redirect("/campgrounds");
-                }
-                 })
-                }
-                else { req.flash('error','new password and confirm pass do not match'); res.redirect("back");}
-              }
-            }
-          });  
-        }); 
+      // router.post('/change',(req, res)=>{
+      //  User.findById(req.params.id,(err, user) => {
+      //       if (err) {console.log('success: false, message: err'); } 
+      //       else {
+      //          if (!user) { req.flash("error", 'User not found' );} // Ret error,user was not found in db
+      //          else {
+      //           if(req.body.newPassword === req.body.confirmnewPassword) {
+      //           user.changePassword(req.body.oldPassword, req.body.newPassword, function(err) {
+      //              if(err) {
+      //                 console.log(err);
+      //             } else {req.flash("success",'Your password has been changed successfully');
+      //           res.redirect("/campgrounds");
+      //           }
+      //            })
+      //           }
+      //           else { req.flash('error','new password and confirm pass do not match'); res.redirect("back");}
+      //         }
+      //       }
+      //     });  
+      //   }); 
 //middleware function
 function isLoggedIn(req,res,next)
 {

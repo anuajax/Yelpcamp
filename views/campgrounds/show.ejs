@@ -5,12 +5,30 @@
                      <p class="lead"><a href="/campgrounds">YelpCamp</a></p>
                      <div class="list-group">
                             <li class="list-group-item active">Info-1</li>
-                            <li class="list-group-item"> Info-2</li>
-                            <li class="list-group-item">Info-3</li>
+                            <li class="list-group-item info2"> Info-2</li>
+                            <li class="list-group-item info3">Info-3</li>
                      </div>
-                     <div id="map" class="text-center list-group-item my-4">
-                         <p>Map is not shown.Ask the owner to purchase Google maps API.</p>
-                     </div>
+                    
+                    <div class="my-4 climate1" >
+                           <img class="cl1" src="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png" alt="">
+                           <h5><%=campground.weather.main%>, <%=campground.weather.desc%></h5>
+                           <h5>Current temp : <%=campground.weather.current%>°C</h5>
+                           <h5>Feels Like : <%=campground.weather.feelslike%>°C</h5>
+                           <h5>Max Temp : <%=campground.weather.max%>°C</h5>
+                           <h5>Min. Temp : <%=campground.weather.min%>°C</h5>
+                         </div>  
+                           
+                    
+                    <div class="climate2 my-4">
+                     <h5>Sunrise : <%=campground.weather.sunr%></h5>
+                     <h5>Sunset : <%=campground.weather.suns%></h5>
+                     <h5>Wind: <%=campground.weather.wind.speed%>mph, <%=campground.weather.wind.deg%>°</h5>
+                     <h5>Humidity: <%=campground.weather.hum%> %</h5>
+
+              </div>
+                    <div id="map" class="text-center list-group-item my-4">
+                     <p>Map is not shown.Ask the owner to purchase Google maps API.</p>
+                 </div>
               </div>
               <div class="col-md-9">
                      <div class="thumbnail">
@@ -39,8 +57,8 @@
                             <% campground.comments.forEach(function(comment){ %>
                                    <div class="row">
                                           <div class="col-md-12">
-                                                 <strong> <%= comment.author.username %> </strong>
-                                                 <span class="pull-right"><%= comment.updatedAt%></span>
+                                                 <strong id="user"> <%= comment.author.username %> </strong>
+                                                 <span class="pull-right"><%= comment.updatedAt.toLocaleString("en-US")%></span>
                                                  <p>  - <%= comment.text %> </p>
                                                  <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
                                                  <a href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit" 
@@ -58,7 +76,6 @@
               </div>
        </div>
 </div>
-
 <script>
        function initMap() {
          var lat = <%= campground.lat %>;

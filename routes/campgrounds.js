@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var request = require('request');
+var unirest = require("unirest");
 var Campground = require("../models/campground");
 var Comment = require("../models/comment");
 var middleware = require("../middleware/index.js");
@@ -95,35 +96,50 @@ res.render("campgrounds/new.ejs");
 /*.......... ............*/
 
 //SHOW template for More-Info button
-router.get("/:id",function(req,res){
+router.get("/:id",middleware.isLoggedIn,function(req,res){
     //find campground by provided ID
     Campground.findById(req.params.id).populate("comments").exec(function(err,foundCampground){
         if(err)
         console.log(err);
         else{
-            // var city = foundCampground.location;
-            // var apiKey = "a4388366d44ff0ddbb56aab03b05eb1c";
-            // var url = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid="+apiKey;
-            // //console.log(foundCampground);
-            // //render show template for that campground
-            // request(url, function (err, response, body) {
-            //     if(err || response.statusCode !==200)
-            //     {
-            //         //req.flash("error",'weather not found');
-            //         console.log(err);
-            //     }
-            //     else{
-            //          weather = JSON.parse(body);
-            //         console.log(weather.main.temp);
-            //         let weatherDetail = {
-            //             temp: weather.main.temp,
-            //             des: weather.weather[0].main,
-            //             humidity: weather.main.humidity
-            //         }
-            res.render("campgrounds/show",{campground: foundCampground});
+            var city = foundCampground.location;
+            var url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.WEATHER_API}`;
+            request(url, function (err, response, body) {
+                if(err){
+                  console.log(err);
+                } else {
+                 let weather = JSON.parse(body)
+                  if(weather.main == undefined){
+                    console.log("weather undefined");
+                  } else {
+                    let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
+                    console.log(weather);
+                    foundCampground.weather.main=weather.weather[0].main;
+                    foundCampground.weather.desc=weather.weather[0].description;
+                    foundCampground.weather.current=((weather.main.temp - 32)*5/9).toFixed(2);
+                    foundCampground.weather.feelslike=((weather.main.feels_like - 32)*5/9).toFixed(2);
+                    foundCampground.weather.max=((weather.main.temp_max - 32)*5/9).toFixed(2);
+                    foundCampground.weather.min=((weather.main.temp_min - 32)*5/9).toFixed(2);
+                    foundCampground.weather.hum=(weather.main.humidity).toFixed(2);
+                    var sr = new Date(weather.sys.sunrise*1000).toLocaleTimeString("en-US",{timeZone: "Asia/Kolkata"});
+                    var ss = new Date(weather.sys.sunset*1000).toLocaleTimeString("en-US",{timeZone: "Asia/Kolkata"});
+                    foundCampground.weather.sunr=sr.toString();
+                    foundCampground.weather.suns=ss.toString();
+                    foundCampground.weather.wind.speed=weather.wind.speed;
+                    foundCampground.weather.wind.deg=weather.wind.deg;
+                    console.log(ss.toString());
+                   
+                    foundCampground.save();
+                  }
                 }
               });
+            console.log(foundCampground);
+            res.render("campgrounds/show",{campground: foundCampground});
+               
+            
+            }
         });
+    });
 
 //EDIT ROUTE
 router.get("/:id/edit",middleware.checkCampOwnership,function(req,res){
