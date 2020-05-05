@@ -52,13 +52,13 @@ router.post('/register', function(req, res,next) {
           if (err) { 
            req.flash('error',err.message); 
           }else{ 
-              console.log(user);
+              //console.log(user);
               async.waterfall([
                 function(done) {crypto.randomBytes(20, function(err, buf) {var token = buf.toString('hex');done(err, token);});},
                 function(token, done) {
                   User.findOne({ email: req.body.email }, function(err, user) {
                     if (err) {
-                      console.log(err);
+                     // console.log(err);
                       req.flash('error',err.message);
                     return res.redirect('/register');
                     }
@@ -82,9 +82,9 @@ router.post('/register', function(req, res,next) {
                         'If you did not request this, please ignore this email and your account will not be created.\n'
                       };
                       smtpTransport.sendMail(mailOptions, function(err) {
-                        console.log('mail sent');
-                        console.log('success An e-mail has been sent to ' + user.email + ' with further instructions.');
-                        req.flash("success","An e-mail has been sent to ' + user.email + ' with further instructions.");
+                        // console.log('mail sent');
+                        // console.log('success An e-mail has been sent to ' + user.email + ' with further instructions.');
+                        req.flash("success","An e-mail has been sent to " + user.email + " with further instructions.");
                       done(err, 'done');
                       });
                     }
@@ -100,13 +100,13 @@ router.post('/register', function(req, res,next) {
 router.get('/verify/:token',function(req, res) {
 User.findOne({ verificationToken: req.params.token, verificationTokenExpires: { $gt: Date.now() } }, function(err, user){
 if (!user) {
-  console.log('Password reset token is invalid or has expired.Cant find User for this token');
+ // console.log('Password reset token is invalid or has expired.Cant find User for this token');
  req.flash('error','Password reset token is invalid or has expired.Cant find User for this token');
 } 
 else{ 
 user.isVerified = true;
 user.save(function (err) {if (err) { return res.status(500).send({ msg: err.message }); }});
-console.log(user);
+//console.log(user);
 res.redirect('/login');
   }
 });
@@ -125,7 +125,8 @@ User.findOne({username:req.body.username},function(err,user){
     {
       res.redirect(req.session.returnTo || '/campgrounds');
     }
-    else { console.log("Please verify your account first"); req.flash('error','Please verify account to login');
+    else { //console.log("Please verify your account first"); 
+    req.flash('error','Please verify account to login');
     res.redirect("login");}
   }
 })

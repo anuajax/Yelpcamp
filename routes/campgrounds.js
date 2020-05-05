@@ -79,7 +79,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
       // Create a new campground and save to DB
       Campground.create(newcampground, function(err, campground){
           if(err){
-              console.log(err);
+              //console.log(err);
           } else {
               //redirect back to campgrounds page
               
@@ -127,13 +127,13 @@ router.get("/:id",middleware.isLoggedIn,function(req,res){
                     foundCampground.weather.suns=ss.toString();
                     foundCampground.weather.wind.speed=weather.wind.speed;
                     foundCampground.weather.wind.deg=weather.wind.deg;
-                    console.log(ss.toString());
+                    //console.log(ss.toString());
                    
                     foundCampground.save();
                   }
                 }
               });
-            console.log(foundCampground);
+           // console.log(foundCampground);
             res.render("campgrounds/show",{campground: foundCampground});
                
             
