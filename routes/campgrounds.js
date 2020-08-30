@@ -113,7 +113,7 @@ router.get("/:id",middleware.isLoggedIn,function(req,res){
                     console.log("weather undefined");
                   } else {
                     let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
-                    console.log(weather);
+                    //console.log(weather);
                     foundCampground.weather.main=weather.weather[0].main;
                     foundCampground.weather.desc=weather.weather[0].description;
                     foundCampground.weather.current=((weather.main.temp - 32)*5/9).toFixed(2);
