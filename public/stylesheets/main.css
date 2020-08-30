@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(0, 0, 0);
+
 }
 p{
     font-size: larger;
@@ -19,7 +19,7 @@ color: aquamarine
 .thumbnail{
     padding: 0;
     border: none;
-    color: yellow;
+    color: maroon;
 }
 .thumbnail .caption-full{
 padding: 9px;
@@ -42,7 +42,10 @@ display: inline;
 .cap{
     margin: 10px 0px;
 }
-.lead a{color: yellow; text-decoration: none;}
+#desc{
+    color: darkcyan;
+}
+.lead a{color: maroon; text-decoration: none;}
 #map{
     background-image: url('https://www.extremetech.com/wp-content/uploads/2019/10/maps-generic-640x353.jpg');
     background-position: center;
@@ -80,7 +83,8 @@ padding: 10px auto;
     background-size: cover;
 }
 .index{
-    background: url("https://i.ytimg.com/vi/SLR_p2g473I/maxresdefault.jpg");
+    /* background: url("https://i.ytimg.com/vi/SLR_p2g473I/maxresdefault.jpg"); */
+    
     background-attachment: fixed;
     background-size: cover;
 }

@@ -37,8 +37,8 @@
                                           <h4 class="pull-right">$<%=campground.price%>/night</h4>
                                           <h2><a><%=campground.name%></a></h2>
                                           <h4><%=campground.location%></h4>
-                                          <p> <%= campground.description %></p>
-                                          <p> 
+                                          <p id="desc"> <%= campground.description %></p>
+                                          <p style="color: darkorange;"> 
                                                  <em>- Submitted By <%= campground.author.username %> </em>
                                           </p>
                                           <% if(currentUser && campground.author.id.equals(currentUser._id)) { %>
@@ -59,7 +59,7 @@
                                           <div class="col-md-12">
                                                  <strong id="user"> <%= comment.author.username %> </strong>
                                                  <span class="pull-right"><%= comment.updatedAt.toLocaleString("en-US",{timeZone: "Asia/Kolkata"})%></span>
-                                                 <p>  - <%= comment.text %> </p>
+                                                 <p id="desc">  - <%= comment.text %> </p>
                                                  <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
                                                  <a href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit" 
                                                         class="btn btn-sm btn-warning">Edit Comment</a>
