@@ -23,8 +23,8 @@ var seedDB = require("./seeds");
 
 //================================= mongoose =======================================//
 var mongoose = require("mongoose");
-//mongoose.connect("mongodb://localhost/yelptest2", { useNewUrlParser: true });
-mongoose.connect("mongodb+srv://anu123:apple123@cluster0-5c5ij.mongodb.net/yelp?retryWrites=true&w=majority", { useNewUrlParser: true });  
+mongoose.connect("mongodb://localhost/yelptest2", { useNewUrlParser: true });
+//mongoose.connect("mongodb+srv://anu123:apple123@cluster0-5c5ij.mongodb.net/yelp?retryWrites=true&w=majority", { useNewUrlParser: true });  
 
 //===============================================================================================================================================
 //===============================================================================================================================================
