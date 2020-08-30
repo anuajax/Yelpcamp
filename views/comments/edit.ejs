@@ -4,8 +4,8 @@
        <h1 style="text-align: center">Edit Comment</h1>
        <div style="width: 30%; margin:30px auto">
             <form action="/campgrounds/<%= campground_id %>/comments/<%=comment._id%>?_method=PUT" method="POST">
-                <textarea class="form-group">
-                     <textarea class="form-control" type="text" value="<%=comment.text%>" name="comment[text]"></textarea>
+                <div class="form-group">
+                     <textarea class="form-control" type="text" cols="6" name="comment[text]"><%=comment.text%></textarea>
                 </div>
                  <!-- this format-->
                                                                                   <!--comment[author] is used-->
