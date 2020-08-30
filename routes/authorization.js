@@ -69,7 +69,7 @@ router.post('/register', function(req, res,next) {
                     });
                   });
                   },
-                 async function(token, user, done) {
+                 function(token, user, done) {
                     var smtpTransport = nodemailer.createTransport({
                       service: 'Gmail', 
                       auth: { user: 'hiimanurag122@gmail.com',pass: process.env.GMAILPW }});
@@ -81,7 +81,7 @@ router.post('/register', function(req, res,next) {
                         'http://' + req.headers.host + '/verify/' + token + '\n\n' +
                         'If you did not request this, please ignore this email and your account will not be created.\n'
                       };
-                     await smtpTransport.sendMail(mailOptions, function(err) {
+                     smtpTransport.sendMail(mailOptions, function(err) {
                         // console.log('mail sent');
                         // console.log('success An e-mail has been sent to ' + user.email + ' with further instructions.');
                         req.flash("success","An e-mail has been sent to " + user.email + " with further instructions.");
