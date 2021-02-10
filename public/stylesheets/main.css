@@ -151,3 +151,16 @@ color: black;
 }
 hr{ font-weight: bolder;}
 .pull-right{ color: rgb(255, 145, 0);}
+
+.carousel {
+    background: url("https://www.mountainphotography.com/images/xl/20170924-Crater-Snow-Camp.jpg");
+    /* background-position: center; */
+    background-size: cover;
+}
+.carousel > h1 {
+    color: antiquewhite;
+}
+.carousel > h3
+{
+    color: antiquewhite;
+}
